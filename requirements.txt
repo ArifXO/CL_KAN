@@ -1,0 +1,29 @@
+# Core deep learning
+torch>=2.1
+torchvision>=0.16
+
+# Config management
+hydra-core>=1.3
+omegaconf>=2.3
+
+# Data and numerics
+numpy>=1.24
+pandas>=2.0
+scikit-learn>=1.3
+einops>=0.7
+tqdm>=4.66
+
+# Medical imaging datasets
+medmnist>=3.0
+
+# Visualization
+matplotlib>=3.7
+
+# KAN library — deferred to Stage 4
+# Candidates: efficient-kan, fastkan
+# Install manually once chosen, then pin here.
+# efficient-kan @ git+https://github.com/Blealtan/efficient-KAN.git
+
+# Dev / testing
+pytest>=7.4
+pytest-cov>=4.1

@@ -1,0 +1,17 @@
+# configs/model/mlp_baseline.yaml
+# MLP projection head — parameter-matched baseline for KAN comparisons (Rule 1)
+
+_target_: src.models.mlp_head.MLPHead
+
+encoder:
+  _target_: src.models.encoder.ResNet18Encoder
+  pretrained: false
+  output_dim: 512
+
+projector:
+  in_dim: 512
+  hidden_dim: 256
+  out_dim: 128
+  num_layers: 2
+  activation: relu
+  batch_norm: true

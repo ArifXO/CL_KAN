@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.Python
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Hydra outputs (generated experiment artifacts — tracked separately)
+outputs/
+multirun/
+.hydra/
+
+# Model checkpoints and large binaries
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.h5
+*.hdf5
+
+# Raw datasets (download locally, never commit)
+data/
+datasets/
+
+# Reports — track only final paper-ready outputs, not raw intermediates
+reports/figures/*.png
+reports/figures/*.pdf
+reports/tables/*.csv
+reports/tables/*.tex
+# Exception: keep .gitkeep placeholders
+!reports/figures/.gitkeep
+!reports/tables/.gitkeep
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Environment files
+.env
+*.env
+secrets.yaml
+
+# OS
+Thumbs.db
+ehthumbs.db

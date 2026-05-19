@@ -1,0 +1,7 @@
+# configs/loss/infonce.yaml
+# Standard InfoNCE (NT-Xent) contrastive loss
+
+_target_: src.losses.infonce.InfoNCELoss
+
+temperature: 0.07        # τ — keep between 0.05 and 0.5
+normalize_embeddings: true

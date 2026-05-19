@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "cxr-kan-contrastive"
+version = "0.1.0"
+description = "Edge-Function-Guided Contrastive Learning with KAN Projection Heads for False-Negative-Aware Multi-Label Chest X-ray Representation Learning"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.1",
+    "torchvision>=0.16",
+    "hydra-core>=1.3",
+    "omegaconf>=2.3",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scikit-learn>=1.3",
+    "einops>=0.7",
+    "tqdm>=4.66",
+    "medmnist>=3.0",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
