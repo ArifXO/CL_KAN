@@ -1,0 +1,13 @@
+# FN-weighted InfoNCE loss with an external KAN pair scorer.
+# The loss module is identical to fn_weighted_mlp.yaml; only the scorer differs.
+# Use KANPairScorer(input_dim=D, hidden_dim=4, num_layers=2, num_centers=8)
+# as the parameter-matched alternative to MLPPairScorer(hidden_dim=32).
+#
+# The pair scorer is configured separately and its [B, B] output is passed as
+# `p_fn` to the loss forward(). See src/models/pair_scorer.py for KANPairScorer.
+
+_target_: src.losses.fn_weighted_infonce.FNWeightedInfoNCELoss
+
+temperature: 0.07
+normalize_embeddings: true
+max_fn_weight: 1.0

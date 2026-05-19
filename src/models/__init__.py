@@ -1,5 +1,14 @@
-"""Model components: encoders and projection heads (MLP and KAN variants).
+"""Model components: encoders and projection heads."""
 
-Stage 2 implementation target: encoder.py, mlp_head.py
-Stage 4 implementation target: kan/kan_head.py
-"""
+from src.models.backbones import ResNet18Backbone, TorchvisionBackbone
+from src.models.kan.fastkan import FastKANLayer, FastKANProjector
+from src.models.projectors import ContrastiveModel, MLPProjector
+
+__all__ = [
+    "ContrastiveModel",
+    "FastKANLayer",
+    "FastKANProjector",
+    "MLPProjector",
+    "ResNet18Backbone",
+    "TorchvisionBackbone",
+]

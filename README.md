@@ -34,8 +34,11 @@ pip install -e ".[dev]"
 # 2. Run smoke test
 pytest tests/test_smoke.py -v
 
-# 3. Run a Stage 1 smoke data pipeline (once implemented)
-python scripts/train.py experiment=smoke_chestmnist
+# 3. Run the Stage 1 smoke data pipeline without downloading data
+python scripts/run_smoke.py fake_data=true fake_size=8 batch_size=4 image_size=32
+
+# 4. Run the Stage 2 MLP + InfoNCE smoke pretraining loop
+python -m src.train
 ```
 
 ---
@@ -64,13 +67,13 @@ reports/        Generated figures and tables (gitignored raw data)
 | Stage | Description | Status |
 |-------|-------------|--------|
 | 0 | Repo setup | ✅ |
-| 1 | ChestMNIST smoke data pipeline | 🔲 |
-| 2 | MLP encoder + InfoNCE baseline | 🔲 |
+| 1 | ChestMNIST smoke data pipeline | ✅ |
+| 2 | MLP encoder + InfoNCE baseline | ✅ |
 | 3 | Linear probe + kNN evaluation | 🔲 |
-| 4 | FastKAN projector | 🔲 |
-| 5 | Residual FastKAN warp | 🔲 |
-| 6 | FN-weighted InfoNCE + MLP scorer | 🔲 |
-| 7 | FN-weighted InfoNCE + KAN scorer | 🔲 |
+| 4 | FastKAN projector | ✅ |
+| 5 | Residual FastKAN warp | ✅ |
+| 6 | FN-weighted InfoNCE + MLP scorer | ✅ |
+| 7 | FN-weighted InfoNCE + KAN scorer | ✅ |
 | 8 | Geometry metrics | 🔲 |
 | 9 | CheXpert full pipeline | 🔲 |
 | 10 | Final ablation runner | 🔲 |

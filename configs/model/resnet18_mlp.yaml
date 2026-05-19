@@ -1,5 +1,4 @@
-# configs/model/mlp_baseline.yaml
-# Backward-compatible alias for the Stage 2 ResNet18 + MLP baseline.
+# Stage 2 MLP baseline: torchvision ResNet18 encoder + normalized MLP projector.
 
 _target_: src.models.projectors.ContrastiveModel
 

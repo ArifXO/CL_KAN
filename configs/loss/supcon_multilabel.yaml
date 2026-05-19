@@ -1,0 +1,12 @@
+# Supervised Contrastive Loss for multi-label two-view batches.
+# For self-supervised (no-label) mode use configs/loss/infonce.yaml instead.
+#
+# overlap_threshold: pairs with Jaccard > threshold become additional positives.
+#   0.0 = any shared label qualifies (inclusive multi-label SupCon)
+#   0.5 = require majority overlap
+
+_target_: src.losses.supcon.SupConMultilabelLoss
+
+temperature: 0.07            # τ — keep between 0.05 and 0.5
+overlap_threshold: 0.0       # Jaccard threshold for label-based positives
+normalize_embeddings: true

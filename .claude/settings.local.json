@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git init *)"
+      "Bash(git init *)",
+      "Bash(Get-Content \"A:\\\\UNI\\\\CSE400\\\\CXR_KAN_Contrastive\\\\src\\\\losses\\\\fn_weighted_infonce.py\")",
+      "Bash(Measure-Object -Line)",
+      "Bash(Get-Content \"A:\\\\UNI\\\\CSE400\\\\CXR_KAN_Contrastive\\\\src\\\\models\\\\pair_scorer.py\")",
+      "Bash(Get-Content \"A:\\\\UNI\\\\CSE400\\\\CXR_KAN_Contrastive\\\\tests\\\\test_fn_weighted_loss.py\")",
+      "Bash(Get-Content \"A:\\\\UNI\\\\CSE400\\\\CXR_KAN_Contrastive\\\\tests\\\\test_pair_scorer.py\")",
+      "PowerShell(\\(Get-Content \"A:\\\\UNI\\\\CSE400\\\\CXR_KAN_Contrastive\\\\src\\\\losses\\\\fn_weighted_infonce.py\"\\).Count; \\(Get-Content \"A:\\\\UNI\\\\CSE400\\\\CXR_KAN_Contrastive\\\\src\\\\models\\\\pair_scorer.py\"\\).Count; \\(Get-Content \"A:\\\\UNI\\\\CSE400\\\\CXR_KAN_Contrastive\\\\tests\\\\test_fn_weighted_loss.py\"\\).Count; \\(Get-Content \"A:\\\\UNI\\\\CSE400\\\\CXR_KAN_Contrastive\\\\tests\\\\test_pair_scorer.py\"\\).Count)"
     ]
   }
 }

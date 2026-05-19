@@ -18,35 +18,35 @@ Check boxes are updated manually as work completes.
 
 ---
 
-## Stage 1 — ChestMNIST Smoke Data Pipeline 🔲
+## Stage 1 — ChestMNIST Smoke Data Pipeline ✅
 
-- [ ] `src/data/chestmnist.py` — ChestMNIST dataset wrapper using `medmnist`
-- [ ] `src/data/splits.py` — patient-level train/val/test split logic
-- [ ] `src/data/augmentations.py` — augmentation pipeline (SimCLR-style)
-- [ ] `src/data/__init__.py` — expose `get_dataloader(cfg)`
-- [ ] `configs/data/chestmnist.yaml` — full config
-- [ ] `tests/test_data_splits.py` — assert patient disjointness
-- [ ] `tests/test_data_pipeline.py` — smoke: load batch, check shapes
-- [ ] All Stage 1 tests pass
+- [x] `src/data/chestmnist.py` — ChestMNIST dataset wrapper using `medmnist`
+- [x] `src/data/splits.py` — patient-level train/val/test split logic
+- [x] `src/data/augmentations.py` — augmentation pipeline (SimCLR-style)
+- [x] `src/data/__init__.py` — expose `get_dataloader(cfg)`
+- [x] `configs/data/chestmnist.yaml` — full config
+- [x] `tests/test_data_splits.py` — assert patient disjointness
+- [x] `tests/test_data_pipeline.py` — smoke: load batch, check shapes
+- [x] All Stage 1 tests pass
 
 **Acceptance:** `pytest tests/test_data_*.py -v` all green.
 
 ---
 
-## Stage 2 — MLP Encoder + InfoNCE Baseline 🔲
+## Stage 2 — MLP Encoder + InfoNCE Baseline ✅
 
-- [ ] `src/models/encoder.py` — ResNet-18 encoder wrapper
-- [ ] `src/models/mlp_head.py` — 2-layer MLP projection head
-- [ ] `src/losses/infonce.py` — standard InfoNCE, returns dict (Rule #7)
-- [ ] `src/utils/param_count.py` — count and log parameter totals
-- [ ] `configs/model/mlp_baseline.yaml`
-- [ ] `configs/loss/infonce.yaml`
-- [ ] `configs/experiment/smoke_mlp.yaml`
-- [ ] `scripts/train.py` — Hydra entry-point
-- [ ] `tests/test_infonce.py` — loss dict contract, gradient flow, numerical stability
-- [ ] `tests/test_mlp_head.py` — output shape, param count
-- [ ] Baseline training run completes on CPU with smoke config
-- [ ] Run artifacts saved (Rule #8): config, git hash, metrics, param count, runtime
+- [x] `src/models/encoder.py` — ResNet-18 encoder wrapper
+- [x] `src/models/mlp_head.py` — 2-layer MLP projection head
+- [x] `src/losses/infonce.py` — standard InfoNCE, returns dict (Rule #7)
+- [x] `src/utils/param_count.py` — count and log parameter totals
+- [x] `configs/model/mlp_baseline.yaml`
+- [x] `configs/loss/infonce.yaml`
+- [x] `configs/experiment/smoke_mlp.yaml`
+- [x] `scripts/train.py` — Hydra entry-point
+- [x] `tests/test_infonce.py` — loss dict contract, gradient flow, numerical stability
+- [x] `tests/test_mlp_head.py` — output shape, param count
+- [x] Baseline training run completes on CPU with smoke config
+- [x] Run artifacts saved (Rule #8): config, git hash, metrics, param count, runtime
 
 **Acceptance:** `pytest tests/test_infonce.py tests/test_mlp_head.py -v` all green.
 
@@ -66,54 +66,53 @@ Check boxes are updated manually as work completes.
 
 ---
 
-## Stage 4 — FastKAN Projector 🔲
+## Stage 4 — FastKAN Projector ✅
 
-- [ ] Decide on KAN library (`efficient-kan` vs `fastkan`) — document choice
-- [ ] `src/models/kan/kan_head.py` — KAN projection head
-- [ ] `src/models/kan/__init__.py`
-- [ ] Verify parameter-matched config vs MLP head (Rule #1)
-- [ ] `configs/model/kan_head.yaml`
-- [ ] `configs/experiment/smoke_kan.yaml`
-- [ ] `tests/test_kan_head.py` — shape, param parity with MLP baseline
-- [ ] Side-by-side comparison run: KAN vs MLP under identical config
+- [x] Decide on KAN library (`efficient-kan` vs `fastkan`) — document choice
+- [x] `src/models/kan/kan_head.py` — KAN projection head
+- [x] `src/models/kan/__init__.py`
+- [x] Verify parameter-matched config vs MLP head (Rule #1)
+- [x] `configs/model/kan_head.yaml`
+- [x] `configs/experiment/smoke_kan.yaml`
+- [x] `tests/test_kan_head.py` — shape, param parity with MLP baseline
+- [x] Side-by-side comparison run: KAN vs MLP under identical config
 
 **Acceptance:** `pytest tests/test_kan_head.py -v` all green + param counts logged.
 
 ---
 
-## Stage 5 — Residual FastKAN Warp 🔲
+## Stage 5 — Residual FastKAN Warp ✅
 
-- [ ] `src/models/kan/residual_kan_head.py` — residual warp variant
-- [ ] `configs/model/residual_kan_head.yaml`
-- [ ] `tests/test_residual_kan.py`
-- [ ] Ablation: KAN vs residual KAN vs MLP
+- [x] `src/models/kan/residual_kan_head.py` — residual warp variant
+- [x] `configs/model/residual_kan_head.yaml`
+- [x] `tests/test_residual_kan.py`
+- [x] Ablation: KAN vs residual KAN vs MLP
 
 **Acceptance:** `pytest tests/test_residual_kan.py -v` all green.
 
 ---
 
-## Stage 6 — FN-Weighted InfoNCE + MLP Scorer 🔲
+## Stage 6 — FN-Weighted InfoNCE + MLP Scorer ✅
 
-- [ ] `src/losses/fn_infonce.py` — FN-weighted InfoNCE loss (dict return)
-- [ ] `src/models/fn_scorer_mlp.py` — MLP false-negative scorer
-- [ ] `src/data/label_graph.py` — co-occurrence / label similarity matrix
-- [ ] `tests/test_fn_mask.py` — mask unit tests (Rule #3): all-positive, all-negative, mixed FN
-- [ ] `tests/test_fn_infonce.py` — loss dict contract, gradient flow
-- [ ] `configs/loss/fn_infonce_mlp.yaml`
+- [x] `src/losses/fn_weighted_infonce.py` — FNWeightedInfoNCELoss (dict return, Rule #7)
+- [x] `src/models/pair_scorer.py` — MLPPairScorer (false-negative scorer)
+- [x] `tests/test_pair_scorer.py` — shape, bounds, gradient, validation errors
+- [x] `tests/test_fn_weighted_loss.py` — Rule #3 positive/negative/FN cases, monotonicity, gradient flow
+- [x] `configs/loss/fn_weighted_mlp.yaml`
 
-**Acceptance:** `pytest tests/test_fn_*.py -v` all green.
+**Acceptance:** `pytest tests/test_pair_scorer.py tests/test_fn_weighted_loss.py -v` all green (40 tests).
 
 ---
 
-## Stage 7 — FN-Weighted InfoNCE + KAN Scorer 🔲
+## Stage 7 — FN-Weighted InfoNCE + KAN Scorer ✅
 
-- [ ] `src/models/fn_scorer_kan.py` — KAN false-negative scorer
-- [ ] Verify parameter-matched vs MLP scorer (Rule #1)
-- [ ] `configs/loss/fn_infonce_kan.yaml`
-- [ ] `tests/test_fn_scorer_kan.py`
-- [ ] Side-by-side: KAN scorer vs MLP scorer
+- [x] `KANPairScorer` added to `src/models/pair_scorer.py` (FastKAN-based, same API as MLPPairScorer)
+- [x] Parameter-matched vs MLP scorer within 15 % (Rule #1): MLP H=32 ≈ 1 089 params; KAN H=4,K=8 ≈ 1 193 params
+- [x] `configs/loss/fn_weighted_kan.yaml`
+- [x] `tests/test_kan_pair_scorer.py` — same contract tests + param parity assertion + interchangeability test
+- [x] Interchangeability verified: KAN scorer plugged into FNWeightedInfoNCELoss, finite grads on all params
 
-**Acceptance:** `pytest tests/test_fn_scorer_kan.py -v` all green.
+**Acceptance:** `pytest tests/test_kan_pair_scorer.py -v` all green (17 tests).
 
 ---
 

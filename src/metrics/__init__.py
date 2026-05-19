@@ -1,5 +1,23 @@
-"""Downstream evaluation metrics.
+"""Downstream evaluation and representation geometry metrics."""
 
-Stage 3 implementation target: linear_probe.py, knn.py, auc.py
-Stage 8 implementation target: geometry.py, embedding_viz.py
-"""
+from src.metrics.geometry import (
+    alignment,
+    compute_geometry_metrics,
+    covariance_off_diagonal_energy,
+    effective_rank,
+    embedding_norm_statistics,
+    geometry_regularizers,
+    per_dimension_variance,
+    uniformity,
+)
+
+__all__ = [
+    "alignment",
+    "compute_geometry_metrics",
+    "covariance_off_diagonal_energy",
+    "effective_rank",
+    "embedding_norm_statistics",
+    "geometry_regularizers",
+    "per_dimension_variance",
+    "uniformity",
+]

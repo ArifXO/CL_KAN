@@ -1,0 +1,18 @@
+# Residual FastKAN warp applied after a FastKANProjector (or any projector).
+# Chain: backbone → projector → ResidualFastKANWarp
+# input_dim must match the projector's output_dim.
+
+_target_: src.models.kan.residual_warp.ResidualFastKANWarp
+input_dim: 128
+hidden_dim: 64
+num_layers: 2
+num_centers: 8
+grid_min: -2.0
+grid_max: 2.0
+use_base_linear: true
+base_activation: silu
+rbf_init_scale: 0.1
+alpha_init: 0.0
+learnable_alpha: true
+clamp_alpha: true
+clamp_max: 0.2

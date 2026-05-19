@@ -1,0 +1,23 @@
+# Stage 4 FastKAN baseline: same ResNet18 encoder, RBF-KAN projector.
+
+_target_: src.models.projectors.ContrastiveModel
+
+backbone:
+  _target_: src.models.backbones.TorchvisionBackbone
+  name: resnet18
+  in_channels: 1
+  pretrained: false
+
+projector:
+  _target_: src.models.kan.fastkan.FastKANProjector
+  input_dim: 512
+  hidden_dim: 51
+  output_dim: 128
+  num_layers: 2
+  num_centers: 4
+  grid_min: -2.0
+  grid_max: 2.0
+  use_base_linear: true
+  base_activation: silu
+  normalize: true
+  rbf_init_scale: 0.1

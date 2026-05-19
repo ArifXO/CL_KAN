@@ -1,0 +1,19 @@
+# configs/data/chestmnist.yaml
+# ChestMNIST dataset configuration (Stage 1)
+
+_target_: src.data.chestmnist.ChestMNISTDataModule
+
+root: data/medmnist
+split: train
+image_size: 224
+batch_size: 32
+download: false
+fake_data: false
+fake_size: 16
+seed: 42
+num_workers: 0
+pin_memory: false
+patient_id_col: patient_id
+
+# Stage 1 only wires the supervised ChestMNIST smoke loader.
+# SimCLR-style augmentations are intentionally deferred to Stage 2.

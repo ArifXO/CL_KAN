@@ -62,16 +62,16 @@ cxr-kan-contrastive/          ← repo root (this directory)
 
 ## Development Stages (see TODO.md)
 
-Stage 0 → repo setup  
-Stage 1 → ChestMNIST smoke pipeline  
-Stage 2 → MLP + InfoNCE baseline  
-Stage 3 → linear probe + kNN eval  
-Stage 4 → FastKAN projector  
-Stage 5 → residual FastKAN warp  
-Stage 6 → FN-weighted InfoNCE + MLP scorer  
-Stage 7 → FN-weighted InfoNCE + KAN scorer  
-Stage 8 → geometry metrics  
-Stage 9 → CheXpert pipeline  
+Stage 0 → repo setup ✅  
+Stage 1 → ChestMNIST smoke pipeline ✅  
+Stage 2 → MLP + InfoNCE baseline ✅  
+Stage 3 → linear probe + kNN eval 🔲  
+Stage 4 → FastKAN projector ✅  
+Stage 5 → residual FastKAN warp ✅  
+Stage 6 → FN-weighted InfoNCE + MLP scorer ✅  
+Stage 7 → FN-weighted InfoNCE + KAN scorer ✅  
+Stage 8 → geometry metrics 🔲  
+Stage 9 → CheXpert pipeline 🔲  
 Stage 10 → final ablation runner  
 
 **Rule #2:** Do not start Stage N+1 until Stage N has passing tests.

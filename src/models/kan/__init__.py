@@ -1,6 +1,6 @@
-"""KAN projection head variants.
+"""KAN projection head variants."""
 
-Stage 4 implementation target: kan_head.py
-Stage 5 implementation target: residual_kan_head.py
-Stage 7 implementation target: fn_scorer_kan.py (moved here from models/)
-"""
+from src.models.kan.fastkan import FastKANLayer, FastKANProjector
+from src.models.kan.residual_warp import ResidualFastKANWarp
+
+__all__ = ["FastKANLayer", "FastKANProjector", "ResidualFastKANWarp"]

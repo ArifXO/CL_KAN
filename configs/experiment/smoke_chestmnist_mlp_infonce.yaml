@@ -1,0 +1,36 @@
+# @package _global_
+# Stage 2 smoke experiment: ChestMNIST fake data + MLP projector + InfoNCE.
+
+defaults:
+  - /data: chestmnist
+  - /model: resnet18_mlp
+  - /loss: infonce
+  - _self_
+
+data:
+  fake_data: true
+  fake_size: 8
+  image_size: 32
+  batch_size: 4
+  num_workers: 0
+  pin_memory: false
+  download: false
+
+trainer:
+  max_epochs: 1
+  max_steps: 2
+  drop_last: true
+  seed: 42
+  device: cpu
+
+optimizer:
+  name: adamw
+  lr: 1.0e-3
+  weight_decay: 1.0e-4
+
+augmentation:
+  noise_std: 0.01
+  horizontal_flip_prob: 0.0
+
+logging:
+  log_every_n_steps: 1

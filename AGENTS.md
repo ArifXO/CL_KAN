@@ -68,17 +68,19 @@ reports/              ← generated artifacts only, never committed raw data
 Never skip stages. Each stage must have passing tests before the next begins.
 
 ```
-Stage 0:  repo setup (current)
-Stage 1:  ChestMNIST smoke data pipeline
-Stage 2:  MLP encoder + InfoNCE baseline (parameter-matched)
-Stage 3:  linear probe + kNN evaluation harness
-Stage 4:  FastKAN projector (swap in, compare vs Stage 2)
-Stage 5:  residual FastKAN warp
-Stage 6:  FN-weighted InfoNCE with MLP scorer
-Stage 7:  FN-weighted InfoNCE with KAN scorer
-Stage 8:  geometry metrics (alignment, uniformity, intra-class spread)
-Stage 9:  CheXpert full pipeline
-Stage 10: final ablation runner + paper table generation
+Stage 0:  repo setup ✅
+Stage 1:  ChestMNIST smoke data pipeline ✅
+Stage 2:  MLP encoder + InfoNCE baseline (parameter-matched) ✅
+Stage 3:  linear probe + kNN evaluation harness 🔲  ← current focus
+Stage 4:  FastKAN projector (swap in, compare vs Stage 2) ✅
+Stage 5:  residual FastKAN warp ✅
+Stage 6:  FN-weighted InfoNCE with MLP scorer ✅
+          (src/losses/fn_weighted_infonce.py, src/models/pair_scorer.MLPPairScorer)
+Stage 7:  FN-weighted InfoNCE with KAN scorer ✅
+          (src/models/pair_scorer.KANPairScorer, param-matched within 15 %)
+Stage 8:  geometry metrics (alignment, uniformity, intra-class spread) 🔲
+Stage 9:  CheXpert full pipeline 🔲
+Stage 10: final ablation runner + paper table generation 🔲
 ```
 
 ---

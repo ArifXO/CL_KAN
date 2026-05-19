@@ -45,8 +45,8 @@ checkpoints/
 *.hdf5
 
 # Raw datasets (download locally, never commit)
-data/
-datasets/
+/data/
+/datasets/
 
 # Reports — track only final paper-ready outputs, not raw intermediates
 reports/figures/*.png

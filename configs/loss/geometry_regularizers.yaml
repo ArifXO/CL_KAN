@@ -1,0 +1,24 @@
+# Optional geometry regularizers for representation experiments.
+# These are disabled by default and are separate from no-grad logging metrics.
+
+enabled: false
+
+weights:
+  alignment: 0.0
+  uniformity: 0.0
+  covariance: 0.0
+  variance: 0.0
+
+alignment:
+  alpha: 2.0
+
+uniformity:
+  t: 2.0
+
+variance:
+  target_std: 1.0
+  eps: 1.0e-4
+
+logging:
+  uniformity_t: 2.0
+  eps: 1.0e-12
